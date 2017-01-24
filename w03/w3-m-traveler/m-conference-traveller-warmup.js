@@ -1,14 +1,14 @@
 // Description:
 
-// Lucy loves to travel. Luckily she is a renowned computer 
-// scientist and gets to travel to international conferences 
+// Lucy loves to travel. Luckily she is a renowned computer
+// scientist and gets to travel to international conferences
 // using her department's budget.
 
 // Each year, Society for Exciting Computer Science Research (SECSR)
 // organizes several conferences around the world. Lucy always picks
-// one conference from that list that is hosted in a city she hasn't 
+// one conference from that list that is hosted in a city she hasn't
 // been to before, and if that leaves her with more than one option,
-//  she picks the conference that she thinks would be most relevant 
+//  she picks the conference that she thinks would be most relevant
 //  for her field of research.
 
 // Write a function conferencePicker that takes in two arguments:
@@ -17,7 +17,7 @@
 // as an array of strings.
 // citiesOffered, a list of cities that will host SECSR conferences
 // this year, given as an array of strings. citiesOffered will already
-// be ordered in terms of the relevance of the conferences for Lucy's 
+// be ordered in terms of the relevance of the conferences for Lucy's
 // research (from the most to the least relevant).
 // The function should return the city that Lucy should visit, as a
 // string.
@@ -28,24 +28,39 @@
 // city before.
 // SECSR organizes at least two conferences each year.
 // If all of the offered conferences are hosted in cities that Lucy
-// has visited before, the function should return 'No worthwhile conferences 
+// has visited before, the function should return 'No worthwhile conferences
 // this year!' (Nothing in Haskell)
 
 // Example:
 
 // citiesVisited = ['Mexico City','Johannesburg','Stockholm','Osaka','Saint Petersburg','London'];
 // citiesOffered = ['Stockholm','Paris','Melbourne'];
-
+//
 // conferencePicker (citiesVisited, citiesOffered);
 // // ---> 'Paris'
 
 function conferencePicker (citiesVisited, citiesOffered) {
+  var visited = [];
+  var more = Math.max(citiesVisited.length, citiesOffered.length);
+  for (var i = 0; i < more; i++) {
+    if (citiesVisited.indexOf(citiesOffered[i]) !== -1) {
+      visited.push(citiesOffered[i]);
+    } else {
+      return citiesOffered[i];
+    }
 
+  }
 } // END FUNCTION
+
+citiesVisited = ['Mexico City','Johannesburg','Stockholm','Osaka','Saint Petersburg','London'];
+citiesOffered = ['Stockholm','Paris','Melbourne'];
+
+console.log(conferencePicker (citiesVisited, citiesOffered));
+citiesVisited = ['Bigfork', 'North Scituate', 'Lake Success', 'Willsboro', 'McConnellsburg'];
+citiesOffered = ['Bigfork', 'North Scituate', 'Lake Success', 'Willsboro', 'McConnellsburg', 'Happytown'];
+console.log(conferencePicker (citiesVisited, citiesOffered));
 
 module.exports = {
   conferencePicker:conferencePicker,
   attendance:"WORD UP"
 }
-
-

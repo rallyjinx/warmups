@@ -1,0 +1,575 @@
+± |master ✓| → cd galvanize
+-bash: cd: galvanize: No such file or directory
+
+ 2016-12-21 09:26:03 ⌚  Jinxs-MacBook-Pro in ~/galvanize/q2w3/CRUD_assignment
+± |master ?:1 ✗| → cd ..
+
+ 2016-12-21 09:26:07 ⌚  Jinxs-MacBook-Pro in ~/galvanize/q2w3
+± |master ?:8 ✗| → cd ..
+
+ 2016-12-21 09:26:09 ⌚  Jinxs-MacBook-Pro in ~/galvanize
+± |master ?:111 ✗| → cd warmups
+
+ 2016-12-21 09:26:11 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups
+± |master U:9 ?:27 ✗| → ls
+Array Every.md            SQL Migration             objects-arrays-assessment w11
+Array Filter.md           SQL Seeds                 other-from-previous       w13
+Array Map.md              Team                      package.json              w14
+Array Reduce.md           User Authentication       pokemon_templating        w15
+DOM                       User Registration         readme.md                 w16-python
+Express Error Template    advent_of_code.txt        sorting.js                w18-python
+Express Static Files      advent_of_code_day1.js    typoglycemia              w19-incomplete
+Express Templating        array_filter.js           unused-warmups            w20-incomplete
+Fun                       array_filter.md           w01                       w21-incomplete
+Git                       cats                      w02                       w22-incomplete
+HTML-CSS                  es6_warmup                w03                       w23-incomplete
+Knex Migration            gal_del_test              w04                       w24-incomplete
+Knex Seeds                javascript-curriculum     w05-project-one           warmup,js
+Mental                    javascript-test-coverage  w07-http-verb-warmup      warmup.js
+Node                      learnyounode              w08                       warmup2.js
+Playground                misc.md                   w09                       warmup3.js
+Programming               node_modules              w10
+
+ 2016-12-21 09:26:12 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups
+± |master U:9 ?:27 ✗| → cd User\ Registration/
+
+ 2016-12-21 09:27:07 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:27 ✗| → ls
+README.md   solution.js
+
+ 2016-12-21 09:27:10 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:27 ✗| → atom .
+
+ 2016-12-21 09:27:12 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:27 ✗| → mkdir routes
+
+ 2016-12-21 09:33:22 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:28 ✗| → touch routes/users.js
+
+ 2016-12-21 09:33:29 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:29 ✗| → npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg> --save` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+name: (User Registration) 
+Sorry, name can only contain URL-friendly characters and name can no longer contain capital letters.
+name: (User Registration) user_reg
+version: (1.0.0) 
+description: 
+entry point: (server.js) 
+test command: 
+git repository: 
+keywords: 
+author: 
+license: (ISC) 
+About to write to /Users/Jinx/galvanize/warmups/User Registration/package.json:
+
+{
+  "name": "user_reg",
+  "version": "1.0.0",
+  "description": "Create an Express HTTP server that contains middleware to handle `POST /users` requests with `username` and `password` key-value pairs in the request body. Ensure the middleware takes the following steps.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+
+Is this ok? (yes) 
+
+ 2016-12-21 09:38:14 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:30 ✗| → knex init
+Created ./knexfile.js
+
+ 2016-12-21 09:38:19 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:31 ✗| → npm install --save express pg knex body-parser cookie-parser morgan bcrypt-as-promised
+npm WARN deprecated node-uuid@1.4.7: use uuid module instead
+
+> bcrypt@0.8.7 install /Users/Jinx/galvanize/warmups/User Registration/node_modules/bcrypt
+> node-gyp rebuild
+
+xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+
+xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+
+  CXX(target) Release/obj.target/bcrypt_lib/src/blowfish.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt_node.o
+  SOLINK_MODULE(target) Release/bcrypt_lib.node
+user_reg@1.0.0 /Users/Jinx/galvanize/warmups/User Registration
+├─┬ bcrypt-as-promised@1.1.0 
+│ ├─┬ bcrypt@0.8.7 
+│ │ ├── bindings@1.2.1 
+│ │ └── nan@2.3.5 
+│ └── when@3.7.7 
+├─┬ body-parser@1.15.2 
+│ ├── bytes@2.4.0 
+│ ├── content-type@1.0.2 
+│ ├─┬ debug@2.2.0 
+│ │ └── ms@0.7.1 
+│ ├── depd@1.1.0 
+│ ├─┬ http-errors@1.5.1 
+│ │ ├── setprototypeof@1.0.2 
+│ │ └── statuses@1.3.1 
+│ ├── iconv-lite@0.4.13 
+│ ├─┬ on-finished@2.3.0 
+│ │ └── ee-first@1.1.1 
+│ ├── qs@6.2.0 
+│ ├─┬ raw-body@2.1.7 
+│ │ └── unpipe@1.0.0 
+│ └─┬ type-is@1.6.14 
+│   ├── media-typer@0.3.0 
+│   └─┬ mime-types@2.1.13 
+│     └── mime-db@1.25.0 
+├─┬ cookie-parser@1.4.3 
+│ ├── cookie@0.3.1 
+│ └── cookie-signature@1.0.6 
+├─┬ express@4.14.0 
+│ ├─┬ accepts@1.3.3 
+│ │ └── negotiator@0.6.1 
+│ ├── array-flatten@1.1.1 
+│ ├── content-disposition@0.5.1 
+│ ├── encodeurl@1.0.1 
+│ ├── escape-html@1.0.3 
+│ ├── etag@1.7.0 
+│ ├── finalhandler@0.5.0 
+│ ├── fresh@0.3.0 
+│ ├── merge-descriptors@1.0.1 
+│ ├── methods@1.1.2 
+│ ├── parseurl@1.3.1 
+│ ├── path-to-regexp@0.1.7 
+│ ├─┬ proxy-addr@1.1.2 
+│ │ ├── forwarded@0.1.0 
+│ │ └── ipaddr.js@1.1.1 
+│ ├── range-parser@1.2.0 
+│ ├─┬ send@0.14.1 
+│ │ ├── destroy@1.0.4 
+│ │ └── mime@1.3.4 
+│ ├── serve-static@1.11.1 
+│ ├── utils-merge@1.0.0 
+│ └── vary@1.1.0 
+├─┬ knex@0.12.6 
+│ ├─┬ babel-runtime@6.20.0 
+│ │ ├── core-js@2.4.1 
+│ │ └── regenerator-runtime@0.10.1 
+│ ├── bluebird@3.4.6 
+│ ├─┬ chalk@1.1.3 
+│ │ ├── ansi-styles@2.2.1 
+│ │ ├── escape-string-regexp@1.0.5 
+│ │ ├─┬ has-ansi@2.0.0 
+│ │ │ └── ansi-regex@2.0.0 
+│ │ ├── strip-ansi@3.0.1 
+│ │ └── supports-color@2.0.0 
+│ ├─┬ commander@2.9.0 
+│ │ └── graceful-readlink@1.0.1 
+│ ├── generic-pool@2.5.0 
+│ ├── inherits@2.0.3 
+│ ├── interpret@0.6.6 
+│ ├─┬ liftoff@2.2.5 
+│ │ ├── extend@3.0.0 
+│ │ ├─┬ findup-sync@0.4.3 
+│ │ │ ├─┬ detect-file@0.1.0 
+│ │ │ │ └── fs-exists-sync@0.1.0 
+│ │ │ ├─┬ is-glob@2.0.1 
+│ │ │ │ └── is-extglob@1.0.0 
+│ │ │ ├─┬ micromatch@2.3.11 
+│ │ │ │ ├─┬ arr-diff@2.0.0 
+│ │ │ │ │ └── arr-flatten@1.0.1 
+│ │ │ │ ├── array-unique@0.2.1 
+│ │ │ │ ├─┬ braces@1.8.5 
+│ │ │ │ │ ├─┬ expand-range@1.8.2 
+│ │ │ │ │ │ └─┬ fill-range@2.2.3 
+│ │ │ │ │ │   ├── is-number@2.1.0 
+│ │ │ │ │ │   ├─┬ isobject@2.1.0 
+│ │ │ │ │ │   │ └── isarray@1.0.0 
+│ │ │ │ │ │   ├── randomatic@1.1.6 
+│ │ │ │ │ │   └── repeat-string@1.6.1 
+│ │ │ │ │ ├── preserve@0.2.0 
+│ │ │ │ │ └── repeat-element@1.1.2 
+│ │ │ │ ├─┬ expand-brackets@0.1.5 
+│ │ │ │ │ └── is-posix-bracket@0.1.1 
+│ │ │ │ ├── extglob@0.3.2 
+│ │ │ │ ├── filename-regex@2.0.0 
+│ │ │ │ ├─┬ kind-of@3.1.0 
+│ │ │ │ │ └── is-buffer@1.1.4 
+│ │ │ │ ├── normalize-path@2.0.1 
+│ │ │ │ ├─┬ object.omit@2.0.1 
+│ │ │ │ │ ├─┬ for-own@0.1.4 
+│ │ │ │ │ │ └── for-in@0.1.6 
+│ │ │ │ │ └── is-extendable@0.1.1 
+│ │ │ │ ├─┬ parse-glob@3.0.4 
+│ │ │ │ │ ├─┬ glob-base@0.3.0 
+│ │ │ │ │ │ └── glob-parent@2.0.0 
+│ │ │ │ │ └── is-dotfile@1.0.2 
+│ │ │ │ └─┬ regex-cache@0.4.3 
+│ │ │ │   ├── is-equal-shallow@0.1.3 
+│ │ │ │   └── is-primitive@2.0.0 
+│ │ │ └─┬ resolve-dir@0.1.1 
+│ │ │   ├─┬ expand-tilde@1.2.2 
+│ │ │   │ └── os-homedir@1.0.2 
+│ │ │   └─┬ global-modules@0.2.3 
+│ │ │     ├─┬ global-prefix@0.1.5 
+│ │ │     │ ├─┬ homedir-polyfill@1.0.1 
+│ │ │     │ │ └── parse-passwd@1.0.0 
+│ │ │     │ ├── ini@1.3.4 
+│ │ │     │ └─┬ which@1.2.12 
+│ │ │     │   └── isexe@1.1.2 
+│ │ │     └── is-windows@0.2.0 
+│ │ ├── flagged-respawn@0.3.2 
+│ │ ├── rechoir@0.6.2 
+│ │ └── resolve@1.2.0 
+│ ├── lodash@4.17.2 
+│ ├── minimist@1.1.3 
+│ ├─┬ mkdirp@0.5.1 
+│ │ └── minimist@0.0.8 
+│ ├── node-uuid@1.4.7 
+│ ├── pg-connection-string@0.1.3 
+│ ├─┬ readable-stream@1.1.14 
+│ │ ├── core-util-is@1.0.2 
+│ │ ├── isarray@0.0.1 
+│ │ └── string_decoder@0.10.31 
+│ ├─┬ tildify@1.0.0 
+│ │ └── user-home@1.1.1 
+│ └── v8flags@2.0.11 
+├─┬ morgan@1.7.0 
+│ ├── basic-auth@1.0.4 
+│ └── on-headers@1.0.1 
+└─┬ pg@6.1.2 
+  ├── buffer-writer@1.0.1 
+  ├── packet-reader@0.2.0 
+  ├─┬ pg-pool@1.6.0 
+  │ ├── generic-pool@2.4.2 
+  │ └── object-assign@4.1.0 
+  ├─┬ pg-types@1.11.0 
+  │ ├── ap@0.2.0 
+  │ ├── postgres-array@1.0.2 
+  │ ├── postgres-bytea@1.0.0 
+  │ ├── postgres-date@1.0.3 
+  │ └─┬ postgres-interval@1.0.2 
+  │   └── xtend@4.0.1 
+  ├─┬ pgpass@1.0.1 
+  │ └─┬ split@1.0.0 
+  │   └── through@2.3.8 
+  └── semver@4.3.2 
+
+npm WARN user_reg@1.0.0 No repository field.
+
+ 2016-12-21 09:39:13 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:31 ✗| → knex migrate:make users
+Using environment: development
+Knex: run
+$ npm install sqlite3 --save
+Error: Cannot find module 'sqlite3'
+    at Function.Module._resolveFilename (module.js:470:15)
+    at Function.Module._load (module.js:418:25)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at Client_SQLite3._driver (/Users/Jinx/galvanize/warmups/User Registration/node_modules/knex/lib/dialects/sqlite3/index.js:75:12)
+    at Client_SQLite3.initializeDriver (/Users/Jinx/galvanize/warmups/User Registration/node_modules/knex/lib/client.js:211:26)
+    at Client_SQLite3.Client (/Users/Jinx/galvanize/warmups/User Registration/node_modules/knex/lib/client.js:105:10)
+    at new Client_SQLite3 (/Users/Jinx/galvanize/warmups/User Registration/node_modules/knex/lib/dialects/sqlite3/index.js:58:20)
+    at Knex (/Users/Jinx/galvanize/warmups/User Registration/node_modules/knex/lib/index.js:60:34)
+    at initKnex (/usr/local/lib/node_modules/knex/bin/cli.js:69:10)
+    at Command.<anonymous> (/usr/local/lib/node_modules/knex/bin/cli.js:116:22)
+    at Command.listener (/usr/local/lib/node_modules/knex/node_modules/commander/index.js:301:8)
+    at emitTwo (events.js:106:13)
+    at Command.emit (events.js:191:7)
+    at Command.parseArgs (/usr/local/lib/node_modules/knex/node_modules/commander/index.js:615:12)
+    at Command.parse (/usr/local/lib/node_modules/knex/node_modules/commander/index.js:458:21)
+    at Liftoff.invoke (/usr/local/lib/node_modules/knex/bin/cli.js:186:13)
+    at Liftoff.<anonymous> (/usr/local/lib/node_modules/knex/node_modules/liftoff/index.js:193:16)
+    at module.exports (/usr/local/lib/node_modules/knex/node_modules/flagged-respawn/index.js:17:3)
+    at Liftoff.<anonymous> (/usr/local/lib/node_modules/knex/node_modules/liftoff/index.js:185:9)
+    at /usr/local/lib/node_modules/knex/node_modules/liftoff/index.js:159:9
+    at /usr/local/lib/node_modules/knex/node_modules/v8flags/index.js:108:14
+
+ 2016-12-21 09:40:12 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:31 ✗| → knex migrate:make users
+Using environment: development
+(node:26581) DeprecationWarning: Using Buffer without `new` will soon stop working. Use `new Buffer()`, or preferably `Buffer.from()`, `Buffer.allocUnsafe()` or `Buffer.alloc()` instead.
+Created Migration: /Users/Jinx/galvanize/warmups/User Registration/migrations/20161221094114_users.js
+
+ 2016-12-21 09:41:14 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:32 ✗| → knex migrate:latest
+Using environment: development
+(node:26792) DeprecationWarning: Using Buffer without `new` will soon stop working. Use `new Buffer()`, or preferably `Buffer.from()`, `Buffer.allocUnsafe()` or `Buffer.alloc()` instead.
+error: database "usersdb" does not exist
+    at Connection.parseE (/Users/Jinx/galvanize/warmups/User Registration/node_modules/pg/lib/connection.js:554:11)
+    at Connection.parseMessage (/Users/Jinx/galvanize/warmups/User Registration/node_modules/pg/lib/connection.js:381:17)
+    at Socket.<anonymous> (/Users/Jinx/galvanize/warmups/User Registration/node_modules/pg/lib/connection.js:117:22)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)
+
+ 2016-12-21 09:43:55 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:32 ✗| → createdb usersdb
+
+ 2016-12-21 09:44:04 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:32 ✗| → knex migrate:latest
+Using environment: development
+(node:26957) DeprecationWarning: Using Buffer without `new` will soon stop working. Use `new Buffer()`, or preferably `Buffer.from()`, `Buffer.allocUnsafe()` or `Buffer.alloc()` instead.
+Knex:warning - migrations failed with error: missing ) after argument list
+/Users/Jinx/galvanize/warmups/User Registration/migrations/20161221094114_users.js:7
+  }
+  ^
+SyntaxError: missing ) after argument list
+    at Object.exports.runInThisContext (vm.js:78:16)
+    at Module._compile (module.js:543:28)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at Migrator._validateMigrationStructure (/Users/Jinx/galvanize/warmups/User Registration/node_modules/knex/lib/migrate/index.js:339:21)
+    at wrapper (/Users/Jinx/galvanize/warmups/User Registration/node_modules/lodash/_createBind.js:23:15)
+    at arrayMap (/Users/Jinx/galvanize/warmups/User Registration/node_modules/lodash/_arrayMap.js:16:21)
+    at map (/Users/Jinx/galvanize/warmups/User Registration/node_modules/lodash/map.js:50:10)
+    at /Users/Jinx/galvanize/warmups/User Registration/node_modules/knex/lib/migrate/index.js:305:55
+    at tryCatcher (/Users/Jinx/galvanize/warmups/User Registration/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/Jinx/galvanize/warmups/User Registration/node_modules/bluebird/js/release/promise.js:510:31)
+    at Promise._settlePromise (/Users/Jinx/galvanize/warmups/User Registration/node_modules/bluebird/js/release/promise.js:567:18)
+    at Promise._settlePromise0 (/Users/Jinx/galvanize/warmups/User Registration/node_modules/bluebird/js/release/promise.js:612:10)
+    at Promise._settlePromises (/Users/Jinx/galvanize/warmups/User Registration/node_modules/bluebird/js/release/promise.js:691:18)
+    at Async._drainQueue (/Users/Jinx/galvanize/warmups/User Registration/node_modules/bluebird/js/release/async.js:138:16)
+    at Async._drainQueues (/Users/Jinx/galvanize/warmups/User Registration/node_modules/bluebird/js/release/async.js:148:10)
+    at Immediate.Async.drainQueues (/Users/Jinx/galvanize/warmups/User Registration/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:649:20)
+
+ 2016-12-21 09:44:07 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:32 ✗| → knex migrate:latest
+Using environment: development
+(node:27060) DeprecationWarning: Using Buffer without `new` will soon stop working. Use `new Buffer()`, or preferably `Buffer.from()`, `Buffer.allocUnsafe()` or `Buffer.alloc()` instead.
+Batch 1 run: 1 migrations 
+/Users/Jinx/galvanize/warmups/User Registration/migrations/20161221094114_users.js
+
+ 2016-12-21 09:44:35 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:32 ✗| → http POST localhost:8000/users username="me" password="meow"
+HTTP/1.1 500 Internal Server Error
+Connection: keep-alive
+Content-Length: 1068
+Content-Type: text/html; charset=utf-8
+Date: Wed, 21 Dec 2016 15:52:43 GMT
+X-Content-Type-Options: nosniff
+X-Powered-By: Express
+
+TypeError: knex is not a function<br> &nbsp; &nbsp;at bcrypt.hash.then (/Users/Jinx/galvanize/warmups/User Registration/routes/users.js:11:14)<br> &nbsp; &nbsp;at tryCatchReject (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:845:30)<br> &nbsp; &nbsp;at runContinuation1 (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:804:4)<br> &nbsp; &nbsp;at Fulfilled.when (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:592:4)<br> &nbsp; &nbsp;at Pending.run (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:483:13)<br> &nbsp; &nbsp;at Scheduler._drain (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/Scheduler.js:62:19)<br> &nbsp; &nbsp;at Scheduler.drain (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/Scheduler.js:27:9)<br> &nbsp; &nbsp;at _combinedTickCallback (internal/process/next_tick.js:67:7)<br> &nbsp; &nbsp;at process._tickCallback (internal/process/next_tick.js:98:9)
+
+
+ 2016-12-21 09:52:43 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:33 ✗| → psql usersdb
+psql (9.6.1)
+Type "help" for help.
+
+usersdb=# \dt
+               List of relations
+ Schema |         Name         | Type  | Owner 
+--------+----------------------+-------+-------
+ public | knex_migrations      | table | Jinx
+ public | knex_migrations_lock | table | Jinx
+ public | users                | table | Jinx
+(3 rows)
+
+usersdb=# \d users
+                                  Table "public.users"
+  Column  |          Type          |                     Modifiers                      
+----------+------------------------+----------------------------------------------------
+ id       | integer                | not null default nextval('users_id_seq'::regclass)
+ username | character varying(255) | 
+ digest   | character(60)          | 
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (id)
+
+usersdb=# \q
+
+ 2016-12-21 09:59:20 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:33 ✗| → npm install --save bcrypt
+
+> bcrypt@0.8.7 install /Users/Jinx/galvanize/warmups/User Registration/node_modules/bcrypt-as-promised/node_modules/bcrypt
+> node-gyp rebuild
+
+xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+
+xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+
+  CXX(target) Release/obj.target/bcrypt_lib/src/blowfish.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt_node.o
+  SOLINK_MODULE(target) Release/bcrypt_lib.node
+
+> bcrypt@1.0.1 install /Users/Jinx/galvanize/warmups/User Registration/node_modules/bcrypt
+> node-pre-gyp install --fallback-to-build
+
+node-pre-gyp ERR! Tried to download: https://github.com/kelektiv/node.bcrypt.js/releases/download/v1.0.1/bcrypt_lib-v1.0.1-node-v51-darwin-x64.tar.gz 
+node-pre-gyp ERR! Pre-built binaries not found for bcrypt@1.0.1 and node@7.2.0 (node-v51 ABI) (falling back to source compile with node-gyp) 
+xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+
+xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+
+  CXX(target) Release/obj.target/bcrypt_lib/src/blowfish.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt_node.o
+  SOLINK_MODULE(target) Release/bcrypt_lib.node
+  COPY /Users/Jinx/galvanize/warmups/User Registration/node_modules/bcrypt/lib/binding/bcrypt_lib.node
+  TOUCH Release/obj.target/action_after_build.stamp
+user_reg@1.0.0 /Users/Jinx/galvanize/warmups/User Registration
+├─┬ bcrypt@1.0.1 
+│ └─┬ node-pre-gyp@0.6.30 
+│   ├─┬ nopt@3.0.6 
+│   │ └── abbrev@1.0.9 
+│   ├─┬ npmlog@4.0.2 
+│   │ ├─┬ are-we-there-yet@1.1.2 
+│   │ │ └── delegates@1.0.0 
+│   │ ├── console-control-strings@1.1.0 
+│   │ ├─┬ gauge@2.7.2 
+│   │ │ ├── aproba@1.0.4 
+│   │ │ ├── has-unicode@2.0.1 
+│   │ │ ├── signal-exit@3.0.2 
+│   │ │ ├─┬ string-width@1.0.2 
+│   │ │ │ ├── code-point-at@1.1.0 
+│   │ │ │ └─┬ is-fullwidth-code-point@1.0.0 
+│   │ │ │   └── number-is-nan@1.0.1 
+│   │ │ ├── supports-color@0.2.0 
+│   │ │ └── wide-align@1.1.0 
+│   │ └── set-blocking@2.0.0 
+│   ├─┬ rc@1.1.6 
+│   │ ├── deep-extend@0.4.1 
+│   │ ├── minimist@1.2.0 
+│   │ └── strip-json-comments@1.0.4 
+│   ├─┬ request@2.79.0 
+│   │ ├── aws-sign2@0.6.0 
+│   │ ├── aws4@1.5.0 
+│   │ ├── caseless@0.11.0 
+│   │ ├─┬ combined-stream@1.0.5 
+│   │ │ └── delayed-stream@1.0.0 
+│   │ ├── forever-agent@0.6.1 
+│   │ ├─┬ form-data@2.1.2 
+│   │ │ └── asynckit@0.4.0 
+│   │ ├─┬ har-validator@2.0.6 
+│   │ │ ├─┬ is-my-json-valid@2.15.0 
+│   │ │ │ ├── generate-function@2.0.0 
+│   │ │ │ ├─┬ generate-object-property@1.2.0 
+│   │ │ │ │ └── is-property@1.0.2 
+│   │ │ │ └── jsonpointer@4.0.1 
+│   │ │ └─┬ pinkie-promise@2.0.1 
+│   │ │   └── pinkie@2.0.4 
+│   │ ├─┬ hawk@3.1.3 
+│   │ │ ├── boom@2.10.1 
+│   │ │ ├── cryptiles@2.0.5 
+│   │ │ ├── hoek@2.16.3 
+│   │ │ └── sntp@1.0.9 
+│   │ ├─┬ http-signature@1.1.1 
+│   │ │ ├── assert-plus@0.2.0 
+│   │ │ ├─┬ jsprim@1.3.1 
+│   │ │ │ ├── extsprintf@1.0.2 
+│   │ │ │ ├── json-schema@0.2.3 
+│   │ │ │ └── verror@1.3.6 
+│   │ │ └─┬ sshpk@1.10.1 
+│   │ │   ├── asn1@0.2.3 
+│   │ │   ├── assert-plus@1.0.0 
+│   │ │   ├── bcrypt-pbkdf@1.0.0 
+│   │ │   ├─┬ dashdash@1.14.1 
+│   │ │   │ └── assert-plus@1.0.0 
+│   │ │   ├── ecc-jsbn@0.1.1 
+│   │ │   ├─┬ getpass@0.1.6 
+│   │ │   │ └── assert-plus@1.0.0 
+│   │ │   ├── jodid25519@1.0.2 
+│   │ │   ├── jsbn@0.1.0 
+│   │ │   └── tweetnacl@0.14.5 
+│   │ ├── is-typedarray@1.0.0 
+│   │ ├── isstream@0.1.2 
+│   │ ├── json-stringify-safe@5.0.1 
+│   │ ├── oauth-sign@0.8.2 
+│   │ ├── qs@6.3.0 
+│   │ ├── stringstream@0.0.5 
+│   │ ├─┬ tough-cookie@2.3.2 
+│   │ │ └── punycode@1.4.1 
+│   │ ├── tunnel-agent@0.4.3 
+│   │ └── uuid@3.0.1 
+│   ├─┬ rimraf@2.5.4 
+│   │ └─┬ glob@7.1.1 
+│   │   ├── fs.realpath@1.0.0 
+│   │   ├── inflight@1.0.6 
+│   │   ├─┬ minimatch@3.0.3 
+│   │   │ └─┬ brace-expansion@1.1.6 
+│   │   │   ├── balanced-match@0.4.2 
+│   │   │   └── concat-map@0.0.1 
+│   │   ├── once@1.4.0 
+│   │   └── path-is-absolute@1.0.1 
+│   ├── semver@5.3.0 
+│   ├─┬ tar@2.2.1 
+│   │ ├── block-stream@0.0.9 
+│   │ └─┬ fstream@1.0.10 
+│   │   └── graceful-fs@4.1.11 
+│   └─┬ tar-pack@3.1.4 
+│     ├── fstream-ignore@1.0.5 
+│     ├─┬ once@1.3.3 
+│     │ └── wrappy@1.0.2 
+│     ├─┬ readable-stream@2.1.5 
+│     │ ├── buffer-shims@1.0.0 
+│     │ ├── process-nextick-args@1.0.7 
+│     │ └── util-deprecate@1.0.2 
+│     └── uid-number@0.0.6 
+└─┬ bcrypt-as-promised@1.1.0
+  └── bcrypt@0.8.7 
+
+npm WARN user_reg@1.0.0 No repository field.
+
+ 2016-12-21 10:06:41 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:33 ✗| → http POST localhost:8000/users username="me" password="meow"
+HTTP/1.1 500 Internal Server Error
+Connection: keep-alive
+Content-Length: 1068
+Content-Type: text/html; charset=utf-8
+Date: Wed, 21 Dec 2016 16:07:09 GMT
+X-Content-Type-Options: nosniff
+X-Powered-By: Express
+
+TypeError: knex is not a function<br> &nbsp; &nbsp;at bcrypt.hash.then (/Users/Jinx/galvanize/warmups/User Registration/routes/users.js:11:14)<br> &nbsp; &nbsp;at tryCatchReject (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:845:30)<br> &nbsp; &nbsp;at runContinuation1 (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:804:4)<br> &nbsp; &nbsp;at Fulfilled.when (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:592:4)<br> &nbsp; &nbsp;at Pending.run (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:483:13)<br> &nbsp; &nbsp;at Scheduler._drain (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/Scheduler.js:62:19)<br> &nbsp; &nbsp;at Scheduler.drain (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/Scheduler.js:27:9)<br> &nbsp; &nbsp;at _combinedTickCallback (internal/process/next_tick.js:67:7)<br> &nbsp; &nbsp;at process._tickCallback (internal/process/next_tick.js:98:9)
+
+
+ 2016-12-21 10:07:09 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:33 ✗| → http POST localhost:8000/users username="me" password="meow"
+
+http: error: ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /users (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x101777b70>: Failed to establish a new connection: [Errno 61] Connection refused',)) while doing POST request to URL: http://localhost:8000/users
+
+ 2016-12-21 10:09:11 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:33 ✗| → http POST localhost:8000/users username="me" password="meow"
+HTTP/1.1 500 Internal Server Error
+Connection: keep-alive
+Content-Length: 1068
+Content-Type: text/html; charset=utf-8
+Date: Wed, 21 Dec 2016 16:09:26 GMT
+X-Content-Type-Options: nosniff
+X-Powered-By: Express
+
+TypeError: knex is not a function<br> &nbsp; &nbsp;at bcrypt.hash.then (/Users/Jinx/galvanize/warmups/User Registration/routes/users.js:11:14)<br> &nbsp; &nbsp;at tryCatchReject (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:845:30)<br> &nbsp; &nbsp;at runContinuation1 (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:804:4)<br> &nbsp; &nbsp;at Fulfilled.when (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:592:4)<br> &nbsp; &nbsp;at Pending.run (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:483:13)<br> &nbsp; &nbsp;at Scheduler._drain (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/Scheduler.js:62:19)<br> &nbsp; &nbsp;at Scheduler.drain (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/Scheduler.js:27:9)<br> &nbsp; &nbsp;at _combinedTickCallback (internal/process/next_tick.js:67:7)<br> &nbsp; &nbsp;at process._tickCallback (internal/process/next_tick.js:98:9)
+
+
+ 2016-12-21 10:09:26 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:33 ✗| → http POST localhost:8000/users username="me" password="meow"
+HTTP/1.1 500 Internal Server Error
+Connection: keep-alive
+Content-Length: 1068
+Content-Type: text/html; charset=utf-8
+Date: Wed, 21 Dec 2016 16:11:48 GMT
+X-Content-Type-Options: nosniff
+X-Powered-By: Express
+
+TypeError: knex is not a function<br> &nbsp; &nbsp;at bcrypt.hash.then (/Users/Jinx/galvanize/warmups/User Registration/routes/users.js:11:14)<br> &nbsp; &nbsp;at tryCatchReject (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:845:30)<br> &nbsp; &nbsp;at runContinuation1 (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:804:4)<br> &nbsp; &nbsp;at Fulfilled.when (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:592:4)<br> &nbsp; &nbsp;at Pending.run (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/makePromise.js:483:13)<br> &nbsp; &nbsp;at Scheduler._drain (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/Scheduler.js:62:19)<br> &nbsp; &nbsp;at Scheduler.drain (/Users/Jinx/galvanize/warmups/User Registration/node_modules/when/lib/Scheduler.js:27:9)<br> &nbsp; &nbsp;at _combinedTickCallback (internal/process/next_tick.js:67:7)<br> &nbsp; &nbsp;at process._tickCallback (internal/process/next_tick.js:98:9)
+
+
+ 2016-12-21 10:11:48 ⌚  Jinxs-MacBook-Pro in ~/galvanize/warmups/User Registration
+± |master U:9 ?:33 ✗| → 

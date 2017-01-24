@@ -1,0 +1,12 @@
+{
+  "name": "knex_migration",
+  "version": "1.0.0",
+  "description": "Using Knex, build migration files for the following one-to-many relationship.",
+  "main": "concerts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "knex": "knex"
+  },
+  "author": "",
+  "license": "ISC"
+}

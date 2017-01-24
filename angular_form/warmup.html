@@ -1,0 +1,24 @@
+<form novalidate ng-submit="$ctrl.register()" name="thisForm">
+
+  <div ng-class="{ 'has-error' : thisForm.user.$touched && thisForm.user.$invalid}">
+    <p><input type="text" ng-model="$ctrl.email" name="email" match-field="thisForm.verifyEmail.$viewValue" placeholder="Email" required></p>
+    <p ng-show="thisForm.email.$error.required">Required</p>
+  </div>
+
+  <div ng-class="{ 'has-error' : thisForm.user.$touched && thisForm.user.$invalid}">
+    <p><input type="text" ng-model="$ctrl.verifyEmail" name"vemail" match-field="thisForm.email.$viewValue" placeholder="Verify Email" required></p>
+    <p ng-show="thisForm.vemail.$error.required">Required</p>
+  </div>
+
+  <div ng-class="{ 'has-error' : thisForm.password.$touched && thisForm.user.$invalid}">
+    <p><input type="password" name="password" special-password ng-model="$ctrl.password" placeholder="Password" required></p>
+    <p ng-show="thisForm.password.$error.special">Squirrelz</p>
+  </div>
+
+  <div ng-class="{ 'has-error' : thisForm.password.$touched && thisForm.user.$invalid}">
+    <p><input type="password" name="vpassword" ng-model="$ctrl.verifyPassword" placeholder="Verify Password" required></p>
+    <p ng-show="thisForm.vpassword.$error.required">Required</p>
+  </div>
+
+  <p><button type="submit" ng-disabled="thisForm.$invalid">Register</button></p>
+</form>

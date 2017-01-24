@@ -1,9 +1,5 @@
 'use strict';
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
-
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
@@ -14,13 +10,8 @@ const knex = require('knex')(knexConfig);
 
 const bcrypt = require('bcrypt-as-promised');
 const bodyParser = require('body-parser');
-const cookieSession = require('cookie-session');
 
 app.use(bodyParser.json());
-app.use(cookieSession({
-  name: 'auth_warmup_session',
-  secret: process.env.SESSION_SECRET
-}));
 
 app.post('/users', (req, res, next) => {
   const { username, password } = req.body;
@@ -40,10 +31,10 @@ app.post('/users', (req, res, next) => {
   }
 
   knex('users')
-    .select(knex.raw('1=1')) // selecting true from 'users'
+    .select(knex.raw('1=1'))
     .where('username', username)
     .first()
-    .then((exists) => { // so then you can do this
+    .then((exists) => {
       if (exists) {
         const err = new Error('Username already exists');
         err.status = 400;
@@ -64,59 +55,59 @@ app.post('/users', (req, res, next) => {
     });
 });
 
+
+
 app.post('/session', (req, res, next) => {
   const { username, password } = req.body;
 
-  if (!username || username.trim() === '') {
-    const err = new Error('Username must not be blank');
+  if (!username || username.trim === '') {
+    const err = new Error('username must not be blank');
     err.status = 400;
 
     return next(err);
   }
-
-  if (!password || password.trim() === '') {
-    const err = new Error('Password must not be blank');
+  if (!password || password.trim === '') {
+    const err = new Error('password must not be blank');
     err.status = 400;
 
     return next(err);
   }
-
-  let user;
 
   knex('users')
     .where('username', username)
     .first()
-    .then((row) => {
-      if (!row) {
-        const err = new Error('Unauthorized');
+    .then((exists) => {
+      if (!exists) => {
+        const err;
         err.status = 401;
-
         throw err;
       }
-
-      user = row
-
-      return bcrypt.compare(password, row.hashed_password);
+      return bcrypt.hash(password, 12);
+    })
+    .then((hashed_password) => {
+      if (hashed_password !== password) {
+        const err;
+        err.status = 401;
+        throw err;
+      }
+      // - If the passwords do match, store the user's `id` in the session and
+      //   respond with just a 200 status code.
+      return knex('sessions').insert(users.id);
     })
     .then(() => {
-      req.session.userId = user.id;
-      res.sendStatus(200); //in real life you'd probably send to another page
-    })
-    .catch(bcrypt.MISMATCH_ERROR, () => {
-      const err = new Error('Unauthorized');
-      err.status = 401;
-
-      throw err;
+      res.sendStatus(200);
     })
     .catch((err) => {
       next(err);
     });
 });
 
-app.delete('/session', (req, res) => {
-  req.session = null;
+app.delete('/sessions', (req, res, next) => {
+  // - Destroy the session.
+  // - Respond with just a 200 status code.
+  req.session.destroy();
   res.sendStatus(200);
-});
+})
 
 app.use((_req, res) => {
   res.sendStatus(404);

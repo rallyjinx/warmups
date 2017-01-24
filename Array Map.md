@@ -15,3 +15,9 @@ var rounded = map([0.01, 2, 9.89, Math.PI], function(num) {
 
 console.log(rounded); // [0, 2, 10, 3]
 ```
+
+function map(arr, callback()) {
+  let newArray = [];
+  newArray.push(callback(arr));
+  return newArray;
+}

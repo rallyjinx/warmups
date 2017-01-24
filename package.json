@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/gSchool/master_warmup_repository_full_stack#readme",
   "dependencies": {
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "cheerio": "^0.22.0",
+    "expres": "0.0.5",
+    "express": "^4.14.0",
+    "knex": "^0.12.6",
+    "pg": "^6.1.2",
+    "request": "^2.79.0"
   }
 }

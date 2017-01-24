@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-var getSum = require("../solution").getSum;
+var getSum = require("../problem.js").getSum;
 console.log(getSum.toString(), "TYLRERERKJERHKEJRHKJ")
 describe("getSum warmup", function() {
   it("should return the same number if a and b are equal", function () {
